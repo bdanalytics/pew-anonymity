@@ -659,8 +659,375 @@ print(Privacy_Laws_Effective_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Priv
 ```
 
 ```r
+# Problem 4.*
+print(Age_Info.On.Internet_xtab_entity_df <- 
+  mycreate_xtab(entity_limited_df, c("Age", "Info.On.Internet")))
+```
+
+```
+## Loading required package: reshape2
+```
+
+```
+##    Age Info.On.Internet.0 Info.On.Internet.1 Info.On.Internet.2
+## 1   18                  1                  2                 NA
+## 2   19                 NA                  1                  2
+## 3   20                  1                  1                  3
+## 4   21                  1                  1                  1
+## 5   22                 NA                  1                  1
+## 6   23                  2                 NA                 NA
+## 7   24                  1                  1                 NA
+## 8   25                 NA                 NA                  1
+## 9   26                 NA                  1                  2
+## 10  27                 NA                 NA                 NA
+## 11  28                  1                  1                  1
+## 12  29                 NA                 NA                  3
+## 13  30                 NA                  1                 NA
+## 14  31                  1                  1                 NA
+## 15  32                  1                 NA                  1
+## 16  33                 NA                  1                  3
+## 17  34                 NA                 NA                 NA
+## 18  35                 NA                 NA                  2
+## 19  36                  2                 NA                  1
+## 20  37                  2                 NA                  4
+## 21  38                 NA                  2                 NA
+## 22  39                  1                 NA                  2
+## 23  40                 NA                 NA                  3
+## 24  41                  3                  1                  2
+## 25  42                 NA                 NA                 NA
+## 26  43                  3                  1                 NA
+## 27  44                  1                  1                  1
+## 28  45                  1                  1                  1
+## 29  46                  1                  1                  1
+## 30  47                  2                 NA                  3
+## 31  48                  2                  2                  1
+## 32  49                  2                  2                  3
+## 33  50                  1                  4                  5
+## 34  51                  1                  1                  2
+## 35  52                  3                  4                  2
+## 36  53                  6                  2                  3
+## 37  54                  1                 NA                 NA
+## 38  55                  1                  3                  1
+## 39  56                  2                  3                  1
+## 40  57                  2                  4                  2
+## 41  58                  1                  2                  2
+## 42  59                  3                  3                  3
+## 43  60                  6                  6                  2
+## 44  61                  1                  3                  1
+## 45  62                  4                  1                  4
+## 46  63                  1                  1                  1
+## 47  64                  5                  2                  2
+## 48  65                  4                  2                  2
+## 49  66                 NA                  2                  1
+## 50  67                  3                  3                  1
+## 51  68                  2                  1                  2
+## 52  69                  3                  3                 NA
+## 53  70                  3                 NA                 NA
+## 54  71                 NA                  1                 NA
+## 55  72                  3                 NA                  3
+## 56  73                  1                 NA                 NA
+## 57  74                  1                  1                 NA
+## 58  75                  2                 NA                  1
+## 59  76                  1                  1                  2
+## 60  77                  3                 NA                  1
+## 61  78                  1                  1                  1
+## 62  79                 NA                 NA                  3
+## 63  80                  2                 NA                 NA
+## 64  81                  3                 NA                 NA
+## 65  82                 NA                 NA                 NA
+## 66  83                 NA                 NA                  3
+## 67  86                 NA                  1                 NA
+## 68  88                 NA                  1                 NA
+## 69  91                 NA                 NA                  1
+## 70  92                  1                 NA                 NA
+## 71  93                 NA                 NA                 NA
+## 72  NA                  5                  5                  1
+##    Info.On.Internet.3 Info.On.Internet.4 Info.On.Internet.5
+## 1                  NA                  1                  2
+## 2                   3                  1                  1
+## 3                   4                  1                 NA
+## 4                  NA                  2                  3
+## 5                   2                  2                  3
+## 6                   2                  3                  2
+## 7                  NA                  1                 NA
+## 8                  NA                  3                  1
+## 9                   3                 NA                  1
+## 10                  3                  1                  2
+## 11                  1                  1                  3
+## 12                  1                 NA                  3
+## 13                  4                 NA                  4
+## 14                  1                  1                  2
+## 15                  1                  1                 NA
+## 16                  4                  2                  1
+## 17                  2                  1                  1
+## 18                  2                  4                  1
+## 19                  1                 NA                  2
+## 20                  1                  2                 NA
+## 21                  1                  2                  1
+## 22                  1                  5                 NA
+## 23                 NA                  3                  3
+## 24                  1                  2                 NA
+## 25                  2                  2                  1
+## 26                  1                  3                 NA
+## 27                  2                 NA                  3
+## 28                  1                  5                  2
+## 29                 NA                  3                 NA
+## 30                  1                  2                 NA
+## 31                 NA                 NA                  2
+## 32                  2                  1                  2
+## 33                  1                 NA                  3
+## 34                 NA                  2                 NA
+## 35                  3                 NA                  1
+## 36                  3                  3                  5
+## 37                  1                  2                  1
+## 38                  5                  1                 NA
+## 39                  1                  3                  3
+## 40                  5                  1                  2
+## 41                  1                  3                  1
+## 42                 NA                  1                  2
+## 43                  4                  2                  5
+## 44                  1                  2                  1
+## 45                  3                  4                  2
+## 46                  2                  1                 NA
+## 47                  2                  1                  3
+## 48                  2                  1                  2
+## 49                  2                  2                  1
+## 50                  2                  1                  1
+## 51                  1                  2                 NA
+## 52                 NA                  1                  1
+## 53                  3                  2                  2
+## 54                  3                  3                  1
+## 55                  1                  1                  2
+## 56                  1                  2                  2
+## 57                  3                  1                  1
+## 58                 NA                 NA                 NA
+## 59                  1                 NA                 NA
+## 60                 NA                  3                 NA
+## 61                 NA                 NA                  1
+## 62                 NA                 NA                  1
+## 63                 NA                 NA                  1
+## 64                  1                 NA                  1
+## 65                 NA                 NA                 NA
+## 66                 NA                  1                 NA
+## 67                 NA                 NA                 NA
+## 68                 NA                 NA                 NA
+## 69                 NA                 NA                  1
+## 70                 NA                 NA                 NA
+## 71                  1                 NA                 NA
+## 72                  1                  3                  1
+##    Info.On.Internet.6 Info.On.Internet.7 Info.On.Internet.8
+## 1                   5                  1                 NA
+## 2                   1                  2                  4
+## 3                  NA                 NA                  1
+## 4                   2                 NA                  2
+## 5                   1                  3                  1
+## 6                   3                  5                  1
+## 7                   2                  3                  1
+## 8                  NA                 NA                 NA
+## 9                   3                  1                  2
+## 10                  3                  1                  1
+## 11                  3                  1                  2
+## 12                  1                  3                 NA
+## 13                  2                 NA                  2
+## 14                  1                  1                  2
+## 15                 NA                 NA                  1
+## 16                  2                  4                 NA
+## 17                  1                  1                  1
+## 18                  1                  1                 NA
+## 19                  1                 NA                  1
+## 20                 NA                 NA                  1
+## 21                 NA                 NA                 NA
+## 22                  1                 NA                  1
+## 23                 NA                 NA                 NA
+## 24                 NA                 NA                 NA
+## 25                  1                  1                 NA
+## 26                  2                  1                  2
+## 27                 NA                  2                 NA
+## 28                 NA                 NA                 NA
+## 29                 NA                  1                 NA
+## 30                 NA                 NA                 NA
+## 31                  4                  1                  2
+## 32                  3                 NA                 NA
+## 33                  4                  1                  1
+## 34                  1                 NA                  2
+## 35                 NA                  2                 NA
+## 36                 NA                 NA                  1
+## 37                 NA                 NA                  1
+## 38                  5                  3                 NA
+## 39                  2                 NA                 NA
+## 40                  1                  3                  1
+## 41                  2                  1                 NA
+## 42                  2                  2                  2
+## 43                 NA                  1                 NA
+## 44                  1                 NA                 NA
+## 45                  1                  3                  2
+## 46                 NA                  1                 NA
+## 47                 NA                  2                  1
+## 48                  1                  1                 NA
+## 49                  1                  3                  1
+## 50                 NA                 NA                 NA
+## 51                 NA                 NA                 NA
+## 52                 NA                  1                 NA
+## 53                 NA                 NA                 NA
+## 54                 NA                  1                 NA
+## 55                 NA                 NA                 NA
+## 56                 NA                  1                 NA
+## 57                 NA                 NA                 NA
+## 58                 NA                  1                 NA
+## 59                 NA                 NA                 NA
+## 60                 NA                 NA                 NA
+## 61                 NA                 NA                 NA
+## 62                 NA                 NA                 NA
+## 63                 NA                 NA                 NA
+## 64                 NA                 NA                 NA
+## 65                 NA                  1                 NA
+## 66                 NA                  1                 NA
+## 67                 NA                 NA                 NA
+## 68                 NA                 NA                 NA
+## 69                 NA                 NA                 NA
+## 70                 NA                 NA                 NA
+## 71                 NA                 NA                 NA
+## 72                  3                  1                 NA
+##    Info.On.Internet.9 Info.On.Internet.10 Info.On.Internet.11
+## 1                  NA                   1                  NA
+## 2                  NA                  NA                  NA
+## 3                   1                  NA                  NA
+## 4                   1                   1                  NA
+## 5                  NA                   1                  NA
+## 6                  NA                  NA                  NA
+## 7                  NA                   1                  NA
+## 8                  NA                  NA                  NA
+## 9                   1                  NA                  NA
+## 10                 NA                  NA                  NA
+## 11                 NA                  NA                  NA
+## 12                 NA                  NA                  NA
+## 13                  1                  NA                  NA
+## 14                 NA                  NA                  NA
+## 15                 NA                   1                  NA
+## 16                 NA                  NA                  NA
+## 17                 NA                  NA                  NA
+## 18                 NA                  NA                  NA
+## 19                  1                   1                   1
+## 20                 NA                  NA                  NA
+## 21                 NA                  NA                  NA
+## 22                 NA                  NA                  NA
+## 23                 NA                  NA                  NA
+## 24                 NA                  NA                  NA
+## 25                 NA                   1                  NA
+## 26                 NA                   1                  NA
+## 27                  1                  NA                  NA
+## 28                 NA                  NA                  NA
+## 29                 NA                  NA                  NA
+## 30                 NA                  NA                  NA
+## 31                 NA                  NA                  NA
+## 32                 NA                   1                  NA
+## 33                 NA                  NA                  NA
+## 34                 NA                   2                  NA
+## 35                 NA                  NA                  NA
+## 36                  1                  NA                  NA
+## 37                 NA                  NA                   2
+## 38                 NA                  NA                  NA
+## 39                  2                  NA                   1
+## 40                 NA                   1                  NA
+## 41                  2                  NA                  NA
+## 42                 NA                  NA                   1
+## 43                  2                  NA                  NA
+## 44                 NA                  NA                  NA
+## 45                 NA                  NA                  NA
+## 46                 NA                  NA                  NA
+## 47                  2                   1                   1
+## 48                 NA                  NA                  NA
+## 49                 NA                  NA                  NA
+## 50                 NA                  NA                  NA
+## 51                 NA                  NA                   1
+## 52                  1                  NA                  NA
+## 53                 NA                  NA                  NA
+## 54                 NA                  NA                  NA
+## 55                 NA                  NA                  NA
+## 56                 NA                  NA                  NA
+## 57                 NA                  NA                  NA
+## 58                 NA                  NA                  NA
+## 59                 NA                  NA                  NA
+## 60                  1                  NA                  NA
+## 61                 NA                  NA                  NA
+## 62                 NA                  NA                  NA
+## 63                 NA                  NA                  NA
+## 64                 NA                  NA                  NA
+## 65                 NA                  NA                  NA
+## 66                 NA                  NA                  NA
+## 67                 NA                  NA                  NA
+## 68                 NA                  NA                  NA
+## 69                 NA                  NA                  NA
+## 70                 NA                  NA                  NA
+## 71                 NA                  NA                  NA
+## 72                  1                  NA                   1
+```
+
+```r
+#print(max(Age_Info.On.Internet_xtab_entity_df, na.rm=TRUE))
+print(sort(table(entity_limited_df$Age, entity_limited_df$Info.On.Internet)))
+```
+
+```
+##   [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+##  [36] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+##  [71] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [106] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [141] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [176] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [211] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [246] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [281] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [316] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [351] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [386] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## [421] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [456] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [491] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [526] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [561] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [596] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [631] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [666] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [701] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [736] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [771] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [806] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5
+## [841] 5 5 5 5 5 5 5 5 5 6 6 6
+```
+
+```r
+print(Info.On.Internet_by_Smartphone_arr <- 
+   sort(tapply(entity_df$Info.On.Internet, entity_df$Smartphone, mean, na.rm=TRUE)))
+```
+
+```
+##        0        1 
+## 2.922807 4.367556
+```
+
+```r
+print(Tried.Masking.Identity_by_Smartphone_arr <- 
+   sort(tapply(entity_df$Tried.Masking.Identity, entity_df$Smartphone, mean, na.rm=TRUE)))
+```
+
+```
+##         0         1 
+## 0.1174377 0.1925466
+```
+
+```r
 # Other plots:
-# print(myplot_histogram(entity_df, "<col1_name>"))
+print(myplot_histogram(entity_limited_df, "Age"))
+```
+
+```
+## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
+```
+
+![](Pew_Anonymity_files/figure-html/inspect_data_1-1.png) 
+
+```r
 # print(myplot_box(df=entity_df, ycol_names="<col1_name>"))
 # print(myplot_box(df=entity_df, ycol_names="<col1_name>", xcol_name="<col2_name>"))
 # print(myplot_line(subset(entity_df, Symbol %in% c("KO", "PG")), 
@@ -668,8 +1035,16 @@ print(Privacy_Laws_Effective_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Priv
 #     geom_vline(xintercept=as.numeric(as.Date("2003-03-01"))) +
 #     geom_vline(xintercept=as.numeric(as.Date("1983-01-01")))        
 #         )
-# print(myplot_scatter(entity_df, "<col1_name>", "<col2_name>"))
+print(myplot_scatter(entity_limited_df, "Age", "Info.On.Internet"))
+```
 
+```
+## Warning: Removed 22 rows containing missing values (geom_point).
+```
+
+![](Pew_Anonymity_files/figure-html/inspect_data_1-2.png) 
+
+```r
 script_df <- rbind(script_df, 
     data.frame(chunk_label="manage_missing_data", 
         chunk_step_major=max(script_df$chunk_step_major), 
@@ -801,13 +1176,13 @@ We reject the null hypothesis i.e. we have evidence to conclude that am_fctr imp
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] doBy_4.5-13     survival_2.38-1 ggplot2_1.0.0  
+## [1] reshape2_1.4.1  doBy_4.5-13     survival_2.38-1 ggplot2_1.0.0  
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] codetools_0.2-10 colorspace_1.2-5 digest_0.6.8     evaluate_0.5.5  
 ##  [5] formatR_1.0      grid_3.1.2       gtable_0.1.2     htmltools_0.2.6 
-##  [9] knitr_1.9        lattice_0.20-30  MASS_7.3-39      Matrix_1.1-5    
-## [13] munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.4     
-## [17] reshape2_1.4.1   rmarkdown_0.5.1  scales_0.2.4     splines_3.1.2   
+##  [9] knitr_1.9        labeling_0.3     lattice_0.20-30  MASS_7.3-39     
+## [13] Matrix_1.1-5     munsell_0.4.2    plyr_1.8.1       proto_0.3-10    
+## [17] Rcpp_0.11.4      rmarkdown_0.5.1  scales_0.2.4     splines_3.1.2   
 ## [21] stringr_0.6.2    tcltk_3.1.2      tools_3.1.2      yaml_2.1.13
 ```

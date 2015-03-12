@@ -175,9 +175,18 @@ print(Tried_Masking_Identity_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Trie
 print(Privacy_Laws_Effective_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Privacy.Laws.Effective"))
 print(Privacy_Laws_Effective_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Privacy_Laws_Effective_freq_entity_limited_df[, ".freq"]))
 
+# Problem 4.*
+print(Age_Info.On.Internet_xtab_entity_df <- 
+  mycreate_xtab(entity_limited_df, c("Age", "Info.On.Internet")))
+#print(max(Age_Info.On.Internet_xtab_entity_df, na.rm=TRUE))
+print(sort(table(entity_limited_df$Age, entity_limited_df$Info.On.Internet)))
+print(Info.On.Internet_by_Smartphone_arr <- 
+   sort(tapply(entity_df$Info.On.Internet, entity_df$Smartphone, mean, na.rm=TRUE)))
+print(Tried.Masking.Identity_by_Smartphone_arr <- 
+   sort(tapply(entity_df$Tried.Masking.Identity, entity_df$Smartphone, mean, na.rm=TRUE)))
 
 # Other plots:
-# print(myplot_histogram(entity_df, "<col1_name>"))
+print(myplot_histogram(entity_limited_df, "Age"))
 # print(myplot_box(df=entity_df, ycol_names="<col1_name>"))
 # print(myplot_box(df=entity_df, ycol_names="<col1_name>", xcol_name="<col2_name>"))
 # print(myplot_line(subset(entity_df, Symbol %in% c("KO", "PG")), 
@@ -185,7 +194,7 @@ print(Privacy_Laws_Effective_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Priv
 #     geom_vline(xintercept=as.numeric(as.Date("2003-03-01"))) +
 #     geom_vline(xintercept=as.numeric(as.Date("1983-01-01")))        
 #         )
-# print(myplot_scatter(entity_df, "<col1_name>", "<col2_name>"))
+print(myplot_scatter(entity_limited_df, "Age", "Info.On.Internet"))
 
 script_df <- rbind(script_df, 
     data.frame(chunk_label="manage_missing_data", 
