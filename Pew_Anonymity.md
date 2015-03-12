@@ -462,7 +462,47 @@ print(table(entity_df$State, entity_df$Region))
 # print(<col2_name>_min_entity_arr <- 
 #    sort(tapply(entity_df$<col1_name>, entity_df$<col2_name>, min, na.rm=TRUE)))
 
+print(sum((entity_df$Internet.Use == 0) & (entity_df$Smartphone == 0), na.rm=TRUE))
+```
 
+```
+## [1] 186
+```
+
+```r
+print(sum((entity_df$Internet.Use == 1) & (entity_df$Smartphone == 1), na.rm=TRUE))
+```
+
+```
+## [1] 470
+```
+
+```r
+print(sum((entity_df$Internet.Use == 1) & (entity_df$Smartphone == 0), na.rm=TRUE))
+```
+
+```
+## [1] 285
+```
+
+```r
+print(sum((entity_df$Internet.Use == 0) & (entity_df$Smartphone == 1), na.rm=TRUE))
+```
+
+```
+## [1] 17
+```
+
+```r
+entity_limited_df <- subset(entity_df, (Internet.Use == 1) | (Smartphone == 1))
+print(nrow(entity_limited_df))
+```
+
+```
+## [1] 792
+```
+
+```r
 # Other plots:
 # print(myplot_histogram(entity_df, "<col1_name>"))
 # print(myplot_box(df=entity_df, ycol_names="<col1_name>"))

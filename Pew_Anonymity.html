@@ -449,8 +449,18 @@ print(table(entity_df$Sex, entity_df$Region))</code></pre>
 # print(&lt;col2_name&gt;_min_entity_arr &lt;- 
 #    sort(tapply(entity_df$&lt;col1_name&gt;, entity_df$&lt;col2_name&gt;, min, na.rm=TRUE)))
 
-
-# Other plots:
+print(sum((entity_df$Internet.Use == 0) &amp; (entity_df$Smartphone == 0), na.rm=TRUE))</code></pre>
+<pre><code>## [1] 186</code></pre>
+<pre class="r"><code>print(sum((entity_df$Internet.Use == 1) &amp; (entity_df$Smartphone == 1), na.rm=TRUE))</code></pre>
+<pre><code>## [1] 470</code></pre>
+<pre class="r"><code>print(sum((entity_df$Internet.Use == 1) &amp; (entity_df$Smartphone == 0), na.rm=TRUE))</code></pre>
+<pre><code>## [1] 285</code></pre>
+<pre class="r"><code>print(sum((entity_df$Internet.Use == 0) &amp; (entity_df$Smartphone == 1), na.rm=TRUE))</code></pre>
+<pre><code>## [1] 17</code></pre>
+<pre class="r"><code>entity_limited_df &lt;- subset(entity_df, (Internet.Use == 1) | (Smartphone == 1))
+print(nrow(entity_limited_df))</code></pre>
+<pre><code>## [1] 792</code></pre>
+<pre class="r"><code># Other plots:
 # print(myplot_histogram(entity_df, &quot;&lt;col1_name&gt;&quot;))
 # print(myplot_box(df=entity_df, ycol_names=&quot;&lt;col1_name&gt;&quot;))
 # print(myplot_box(df=entity_df, ycol_names=&quot;&lt;col1_name&gt;&quot;, xcol_name=&quot;&lt;col2_name&gt;&quot;))
