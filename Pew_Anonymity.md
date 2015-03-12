@@ -461,6 +461,8 @@ print(table(entity_df$State, entity_df$Region))
 
 # print(<col2_name>_min_entity_arr <- 
 #    sort(tapply(entity_df$<col1_name>, entity_df$<col2_name>, min, na.rm=TRUE)))
+# print(<col1_name>_na_by_<col2_name>_arr <- 
+#    sort(tapply(entity_df$<col1_name>.NA, entity_df$<col2_name>, mean, na.rm=TRUE)))
 
 print(sum((entity_df$Internet.Use == 0) & (entity_df$Smartphone == 0), na.rm=TRUE))
 ```
@@ -500,6 +502,160 @@ print(nrow(entity_limited_df))
 
 ```
 ## [1] 792
+```
+
+```r
+print(sapply(names(entity_limited_df), function(col) sum(is.na(entity_limited_df[, col]))))
+```
+
+```
+##           Internet.Use             Smartphone                    Sex 
+##                      0                     20                      0 
+##                    Age                  State                 Region 
+##                     22                      0                      0 
+##       Conservativeness       Info.On.Internet       Worry.About.Info 
+##                     45                      0                      2 
+##     Privacy.Importance     Anonymity.Possible Tried.Masking.Identity 
+##                      5                     39                      8 
+## Privacy.Laws.Effective 
+##                     65
+```
+
+```r
+#print(sum(is.na(entity_limited_df$Internet.Use)))
+
+print(summary(entity_limited_df))
+```
+
+```
+##   Internet.Use      Smartphone         Sex                 Age       
+##  Min.   :0.0000   Min.   :0.0000   Length:792         Min.   :18.00  
+##  1st Qu.:1.0000   1st Qu.:0.0000   Class :character   1st Qu.:33.00  
+##  Median :1.0000   Median :1.0000   Mode  :character   Median :51.00  
+##  Mean   :0.9785   Mean   :0.6308                      Mean   :48.57  
+##  3rd Qu.:1.0000   3rd Qu.:1.0000                      3rd Qu.:62.00  
+##  Max.   :1.0000   Max.   :1.0000                      Max.   :93.00  
+##                   NA's   :20                          NA's   :22     
+##     State              Region          Conservativeness Info.On.Internet
+##  Length:792         Length:792         Min.   :1.000    Min.   : 0.000  
+##  Class :character   Class :character   1st Qu.:3.000    1st Qu.: 2.000  
+##  Mode  :character   Mode  :character   Median :3.000    Median : 4.000  
+##                                        Mean   :3.237    Mean   : 3.795  
+##                                        3rd Qu.:4.000    3rd Qu.: 6.000  
+##                                        Max.   :5.000    Max.   :11.000  
+##                                        NA's   :45                       
+##  Worry.About.Info Privacy.Importance Anonymity.Possible
+##  Min.   :0.0000   Min.   :  0.00     Min.   :0.0000    
+##  1st Qu.:0.0000   1st Qu.: 41.43     1st Qu.:0.0000    
+##  Median :0.0000   Median : 68.75     Median :0.0000    
+##  Mean   :0.4886   Mean   : 62.85     Mean   :0.3692    
+##  3rd Qu.:1.0000   3rd Qu.: 88.89     3rd Qu.:1.0000    
+##  Max.   :1.0000   Max.   :100.00     Max.   :1.0000    
+##  NA's   :2        NA's   :5          NA's   :39        
+##  Tried.Masking.Identity Privacy.Laws.Effective
+##  Min.   :0.0000         Min.   :0.0000        
+##  1st Qu.:0.0000         1st Qu.:0.0000        
+##  Median :0.0000         Median :0.0000        
+##  Mean   :0.1633         Mean   :0.2559        
+##  3rd Qu.:0.0000         3rd Qu.:1.0000        
+##  Max.   :1.0000         Max.   :1.0000        
+##  NA's   :8              NA's   :65
+```
+
+```r
+print(Info_On_Iternet_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Info.On.Internet"))
+```
+
+```
+##    Info.On.Internet .freq
+## 1                11     8
+## 2                10    13
+## 3                 9    18
+## 4                 8    40
+## 5                 7    63
+## 6                 6    67
+## 7                 1    84
+## 8                 5    94
+## 9                 2    95
+## 10                3   101
+## 11                4   104
+## 12                0   105
+```
+
+```r
+print(Worry_About_Info_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Worry.About.Info"))
+```
+
+```
+##   Worry.About.Info .freq
+## 1                1   386
+## 2                0   404
+```
+
+```r
+print(Worry_About_Info_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Worry_About_Info_freq_entity_limited_df[, ".freq"]))
+```
+
+```
+##         1 
+## 0.4886076
+```
+
+```r
+print(Anonymity_Possible_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Anonymity.Possible"))
+```
+
+```
+##   Anonymity.Possible .freq
+## 1                  1   278
+## 2                  0   475
+```
+
+```r
+print(Anonymity_Possible_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Anonymity_Possible_freq_entity_limited_df[, ".freq"]))
+```
+
+```
+##         1 
+## 0.3691899
+```
+
+```r
+print(Tried_Masking_Identity_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Tried.Masking.Identity"))
+```
+
+```
+##   Tried.Masking.Identity .freq
+## 1                      1   128
+## 2                      0   656
+```
+
+```r
+print(Tried_Masking_Identity_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Tried_Masking_Identity_freq_entity_limited_df[, ".freq"]))
+```
+
+```
+##         1 
+## 0.1632653
+```
+
+```r
+print(Privacy_Laws_Effective_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Privacy.Laws.Effective"))
+```
+
+```
+##   Privacy.Laws.Effective .freq
+## 1                      1   186
+## 2                      0   541
+```
+
+```r
+print(Privacy_Laws_Effective_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Privacy_Laws_Effective_freq_entity_limited_df[, ".freq"]))
+```
+
+```
+##         1 
+## 0.2558459
 ```
 
 ```r

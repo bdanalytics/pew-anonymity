@@ -151,6 +151,8 @@ print(table(entity_df$State, entity_df$Region))
 
 # print(<col2_name>_min_entity_arr <- 
 #    sort(tapply(entity_df$<col1_name>, entity_df$<col2_name>, min, na.rm=TRUE)))
+# print(<col1_name>_na_by_<col2_name>_arr <- 
+#    sort(tapply(entity_df$<col1_name>.NA, entity_df$<col2_name>, mean, na.rm=TRUE)))
 
 print(sum((entity_df$Internet.Use == 0) & (entity_df$Smartphone == 0), na.rm=TRUE))
 print(sum((entity_df$Internet.Use == 1) & (entity_df$Smartphone == 1), na.rm=TRUE))
@@ -159,6 +161,20 @@ print(sum((entity_df$Internet.Use == 0) & (entity_df$Smartphone == 1), na.rm=TRU
 
 entity_limited_df <- subset(entity_df, (Internet.Use == 1) | (Smartphone == 1))
 print(nrow(entity_limited_df))
+print(sapply(names(entity_limited_df), function(col) sum(is.na(entity_limited_df[, col]))))
+#print(sum(is.na(entity_limited_df$Internet.Use)))
+
+print(summary(entity_limited_df))
+print(Info_On_Iternet_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Info.On.Internet"))
+print(Worry_About_Info_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Worry.About.Info"))
+print(Worry_About_Info_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Worry_About_Info_freq_entity_limited_df[, ".freq"]))
+print(Anonymity_Possible_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Anonymity.Possible"))
+print(Anonymity_Possible_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Anonymity_Possible_freq_entity_limited_df[, ".freq"]))
+print(Tried_Masking_Identity_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Tried.Masking.Identity"))
+print(Tried_Masking_Identity_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Tried_Masking_Identity_freq_entity_limited_df[, ".freq"]))
+print(Privacy_Laws_Effective_freq_entity_limited_df <- mycreate_tbl_df(entity_limited_df, "Privacy.Laws.Effective"))
+print(Privacy_Laws_Effective_freq_entity_limited_df[1, ".freq"] * 1.0 / sum(Privacy_Laws_Effective_freq_entity_limited_df[, ".freq"]))
+
 
 # Other plots:
 # print(myplot_histogram(entity_df, "<col1_name>"))
